@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background-color: #07060d;
+  color: #e7e5f2;
+}
+
+/* Barra de rolagem discreta, no tema escuro */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2a2645 transparent;
+}
+
+/* Respeita quem prefere menos animação */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-ink-700 bg-ink-850/80 backdrop-blur-sm;
+  }
+  .input {
+    @apply w-full rounded-xl border border-ink-600 bg-ink-800 px-4 py-3 text-sm text-white placeholder-slate-500 transition-all focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/40;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-600 to-brand-500 px-4 py-3 text-sm font-semibold text-white shadow-glow transition-all hover:from-brand-500 hover:to-brand-400 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-ink-600 px-4 py-2.5 text-sm font-medium text-slate-300 transition-colors hover:border-brand-500/50 hover:text-white;
+  }
+}
