@@ -1,3 +1,5 @@
+import './globals.css';
+
 export const metadata = {
   title: 'AUTONOM',
   description: 'SaaS de agentes de IA',
